@@ -10,7 +10,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Ponpes Ash-Sholihah | List Berita</title>
+  <title>Ponpes Ash-Sholihah | List Blog</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'assets/images/favicon.png'?>">
@@ -52,13 +52,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        List Berita
+        List Blog
         <small></small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Berita</a></li>
-        <li class="active">List Berita</li>
+        <li><a href="#">Blog</a></li>
+        <li class="active">List Blog</li>
       </ol>
     </section>
 
@@ -345,7 +345,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
-                        <h4 class="modal-title" id="myModalLabel">Hapus Berita</h4>
+                        <h4 class="modal-title" id="myModalLabel">Hapus Blog</h4>
                     </div>
                     <form class="form-horizontal" action="<?php echo base_url().'admin/tulisan/hapus_tulisan'?>" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
@@ -414,7 +414,7 @@
         <script type="text/javascript">
                 $.toast({
                     heading: 'Success',
-                    text: "Berita Berhasil disimpan ke database.",
+                    text: "Blog Berhasil disimpan ke database.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
@@ -426,7 +426,7 @@
         <script type="text/javascript">
                 $.toast({
                     heading: 'Info',
-                    text: "Berita berhasil di update",
+                    text: "Blog berhasil di update",
                     showHideTransition: 'slide',
                     icon: 'info',
                     hideAfter: false,
@@ -438,7 +438,7 @@
         <script type="text/javascript">
                 $.toast({
                     heading: 'Success',
-                    text: "Berita Berhasil dihapus.",
+                    text: "Blog Berhasil dihapus.",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,

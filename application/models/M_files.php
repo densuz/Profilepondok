@@ -2,7 +2,7 @@
 class M_files extends CI_Model{
 
 	function get_all_files(){
-		$hsl=$this->db->query("SELECT *FROM tbl_files LEFT JOIN tbl_pengguna on file_oleh=pengguna_id ORDER BY file_id DESC");
+		$hsl=$this->db->query("SELECT *FROM tbl_files LEFT JOIN tbl_pengguna on file_oleh=pengguna_id WHERE file_status != 1 ORDER BY file_id DESC");
 		return $hsl;
 	}
 	function simpan_file($judul,$deskripsi,$oleh,$file){

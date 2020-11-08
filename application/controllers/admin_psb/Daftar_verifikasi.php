@@ -18,7 +18,7 @@ class Daftar_verifikasi extends CI_Controller{
 	$data=$this->m_daftar->get_detail($daftar_id);
 	$detail=$data->row_array();
 	$x['data']=$detail;
-	$this->load->view('admin_psb/v_daftar_detail',$x);
+	$this->load->view('admin_psb/v_daftar_detail_lolos',$x);
 
 	}
 function lolos($daftar_id){

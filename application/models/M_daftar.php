@@ -51,26 +51,40 @@ function update_status_lolos($kode){
     return $hsl;
   }
 
+  function get_nirm(){
+    $q = $this->db->query("SELECT MAX(RIGHT(daftar_nirm,4)) AS kd_max FROM tbl_daftar");
+        $kd = "";
+        if($q->num_rows()>0){
+            foreach($q->result() as $k){
+                $tmp = ((int)$k->kd_max)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }else{
+            $kd = "0001";
+        }
+        return date('dmY').$kd;
+  }
 
-     function get_nirm(){
-       $this->db->select('RIGHT(tbl_daftar.daftar_nirm,2) as kode', true);
-          $this->db->order_by('daftar_nirm','DESC');    
-          $this->db->limit(1);    
-          $query = $this->db->get('tbl_daftar');  //cek dulu apakah ada sudah ada kode di tabel.    
-          if($query->num_rows() > 0){      
-               //cek kode jika telah tersedia    
-               $data = $query->row();  
-               $angka=$data->kode;    
-               $kode = intval($angka) + 1; 
-          }
-          else{      
-               $kode = 1;  //cek jika kode belum terdapat pada table
-          }
-              $tgl=date('dmY'); 
-              $batas = str_pad($kode, 4, "0", STR_PAD_LEFT);    
-              $kodetampil = $tgl.$batas;  //format kode
-              return $kodetampil;  
-}
+
+//      function get_nirm(){
+//        $this->db->select('RIGHT(tbl_daftar.daftar_nirm,4) as kode', true);
+//           $this->db->order_by('daftar_nirm','DESC');    
+//           $this->db->limit(1);    
+//           $query = $this->db->get('tbl_daftar');  //cek dulu apakah ada sudah ada kode di tabel.    
+//           if($query->num_rows() > 0){      
+//                //cek kode jika telah tersedia    
+//                $data = $query->row();  
+//                $angka=$data->kode;    
+//                $kode = intval($angka) + 1; 
+//           }
+//           else{      
+//                $kode = 1;  //cek jika kode belum terdapat pada table
+//           }
+//               $tgl=date('dmY'); 
+//               $batas = str_pad($kode, 4, "0", STR_PAD_LEFT);    
+//               $kodetampil = $tgl.$batas;  //format kode
+//               return $kodetampil;  
+// }
 
 
         

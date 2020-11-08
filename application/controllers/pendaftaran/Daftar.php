@@ -93,7 +93,7 @@ function simpan_pendaftaran(){
 										);
 
 
-							$coba=$this->m_daftar->simpan_daftar($data);
+							$this->m_daftar->simpan_daftar($data);
 						
 							
 //php mailer send mail

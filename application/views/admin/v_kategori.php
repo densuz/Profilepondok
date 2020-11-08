@@ -10,7 +10,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Ponpes Ash-Sholihah | Kategori Berita</title>
+  <title>Ponpes Ash-Sholihah | Kategori Blog</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="shorcut icon" type="text/css" href="<?php echo base_url().'assets/images/favicon.png'?>">
@@ -44,13 +44,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Kategori Berita
+        Kategori Blog
         <small></small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Berita</a></li>
-        <li class="active">Kategori Berita</li>
+        <li><a href="#">Blog</a></li>
+        <li class="active">Kategori Blog</li>
       </ol>
     </section>
 

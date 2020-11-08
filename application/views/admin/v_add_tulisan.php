@@ -65,14 +65,14 @@
         <li class="treeview active">
           <a href="#">
             <i class="fa fa-newspaper-o"></i>
-            <span>Berita</span>
+            <span>Blog</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url().'admin/tulisan'?>"><i class="fa fa-list"></i> List Berita</a></li>
-            <li class="active"><a href="<?php echo base_url().'admin/tulisan/add_tulisan'?>"><i class="fa fa-thumb-tack"></i> Post Berita</a></li>
+            <li><a href="<?php echo base_url().'admin/tulisan'?>"><i class="fa fa-list"></i> List Blog</a></li>
+            <li class="active"><a href="<?php echo base_url().'admin/tulisan/add_tulisan'?>"><i class="fa fa-thumb-tack"></i> Post Blog</a></li>
             <li><a href="<?php echo base_url().'admin/kategori'?>"><i class="fa fa-wrench"></i> Kategori</a></li>
           </ul>
         </li>
@@ -184,13 +184,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Berita
+        Blog
         <small></small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Berita</a></li>
-        <li class="active">Add Berita</li>
+        <li><a href="#">Blog</a></li>
+        <li class="active">Add Blog</li>
       </ol>
     </section>
 
@@ -200,7 +200,7 @@
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Post Berita</h3>
+          <h3 class="box-title">Post Blog</h3>
         </div>
 
 		<form action="<?php echo base_url().'admin/tulisan/simpan_tulisan'?>" method="post" enctype="multipart/form-data">
@@ -209,7 +209,7 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-10">
-              <input type="text" name="xjudul" class="form-control" placeholder="Judul berita atau artikel" required/>
+              <input type="text" name="xjudul" class="form-control" placeholder="Judul Blog atau artikel" required/>
             </div>
             <!-- /.col -->
             <div class="col-md-2">
@@ -232,7 +232,7 @@
 
           <div class="box box-danger">
             <div class="box-header">
-              <h3 class="box-title">Berita</h3>
+              <h3 class="box-title">Blog</h3>
             </div>
             <div class="box-body">
 

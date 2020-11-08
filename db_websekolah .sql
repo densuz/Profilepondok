@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2020 at 08:21 AM
+-- Generation Time: Nov 08, 2020 at 11:31 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `tbl_absensi` (
   `absen_keterangan` varchar(100) DEFAULT NULL,
   `absen_status` int(3) NOT NULL DEFAULT '0' COMMENT '0=haadir, 1=alpha, 2=ijin',
   `absen_tanggal` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_absensi`
@@ -152,7 +152,11 @@ INSERT INTO `tbl_absensi` (`absensi_id`, `absen_siswa_id`, `absen_guru_id`, `abs
 (110, 63, 36, NULL, 1, '2020-07-15'),
 (111, 64, 36, NULL, 2, '2020-07-15'),
 (112, 69, 36, NULL, 2, '2020-07-15'),
-(113, 62, 36, NULL, 1, '2020-07-17');
+(113, 62, 36, NULL, 1, '2020-07-17'),
+(114, 58, 30, NULL, 0, '2020-11-06'),
+(115, 59, 30, NULL, 1, '2020-11-06'),
+(116, 58, 30, NULL, 0, '2020-11-04'),
+(117, 59, 30, NULL, 0, '2020-11-04');
 
 -- --------------------------------------------------------
 
@@ -260,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `tbl_daftar` (
   `daftar_foto` varchar(50) NOT NULL,
   `daftar_createat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `daftar_status` int(3) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_daftar`
@@ -273,7 +277,10 @@ INSERT INTO `tbl_daftar` (`id`, `daftar_nama`, `daftar_jengkel`, `daftar_tempat`
 (50, 'muhadi anwar', '', 'sleman', 'condongcatur depok sleman', '2020-07-01', 'muji', 'suwarsi', '09876545678', 'fauzanashari29@gmail.com', '270720200004', '3773421435.jpg', '2020-07-27 08:00:45', 0),
 (51, 'khoirul anwar', 'L', 'sleman', 'condongcatur depok sleman', '2020-07-02', 'dani', 'susi', '09869754578', 'fauzanashari29@gmail.com', '270720200005', '116.jpg', '2020-07-27 08:06:37', 1),
 (52, 'dani', 'L', 'sleman', 'condongcatur depok sleman', '1998-02-03', 'dani', 'suwarsi', '096543457890', 'fauzanashari29@gmail.com', '250920200006', 'arsi_merah4.jpg', '2020-09-25 07:47:55', 1),
-(53, 'badu', 'L', 'sleman', 'condongcatur depok sleman', '1997-12-09', 'dani', 'suwarsi', '087656789', 'fauzanashari29@gmail.com', '250920200006', 'arsi_merah5.jpg', '2020-09-25 07:57:10', 1);
+(53, 'badu', 'L', 'sleman', 'condongcatur depok sleman', '1997-12-09', 'dani', 'suwarsi', '087656789', 'fauzanashari29@gmail.com', '250920200006', 'arsi_merah5.jpg', '2020-09-25 07:57:10', 1),
+(54, 'muhamad fauzan ashari', 'L', 'sleman', 'condongcatur depok sleman', '1997-01-29', 'muji', 'suwarsi', '0856578892978', 'fauzanashari29@gmail.com', '241020200006', 'Capture1.JPG', '2020-10-24 06:24:37', 0),
+(56, 'nuris S', 'P', 'Kediri', 'puroasri kediri jawa timur', '1999-01-07', 'Samo''in', 'Asmaul hus', '0854345652', 'fauzanashari29@gmail.com', '241020200007', 'nn1.JPG', '2020-10-24 06:33:43', 0),
+(57, 'Umi Istiqomah', 'P', 'sleman', 'condongcatur depok sleman', '1994-10-03', 'muji', 'suwarsi', '087543456345', 'fauzanashari29@gmail.com', '241020200008', 'crop_mbk_umi.jpg', '2020-10-24 06:35:07', 0);
 
 -- --------------------------------------------------------
 
@@ -287,32 +294,35 @@ CREATE TABLE IF NOT EXISTS `tbl_files` (
   `file_deskripsi` text,
   `file_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `file_oleh` varchar(60) DEFAULT NULL,
+  `file_status` int(5) DEFAULT '3' COMMENT '1=santri, 2=web profil, 3=semuanya',
   `file_download` int(11) DEFAULT '0',
   `file_data` varchar(120) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_files`
 --
 
-INSERT INTO `tbl_files` (`file_id`, `file_judul`, `file_deskripsi`, `file_tanggal`, `file_oleh`, `file_download`, `file_data`) VALUES
-(2, 'Dasar-dasar CSS', 'Modul dasar-dasar CSS 3. Modul ini membantu anda untuk memahami struktur dasar CSS', '2017-01-23 04:30:01', 'Drs. Joko', 0, 'ab9a183ff240deadbedaff78e639af2f.pdf'),
-(3, '14 Teknik Komunikasi Yang Paling Efektif', 'Ebook 14 teknik komunikasi paling efektif membantu anda untuk berkomunikasi dengan baik dan benar', '2017-01-23 15:26:06', 'Drs. Joko', 0, 'ab2cb34682bd94f30f2347523112ffb9.pdf'),
-(4, 'Bagaimana Membentuk Pola Pikir yang Baru', 'Ebook ini membantu anda membentuk pola pikir baru.', '2017-01-23 15:27:07', 'Drs. Joko', 0, '30f588eb5c55324f8d18213f11651855.pdf'),
-(5, '7 Tips Penting mengatasi Kritik', '7 Tips Penting mengatasi Kritik', '2017-01-23 15:27:44', 'Drs. Joko', 0, '329a62b25ad475a148e1546aa3db41de.docx'),
-(6, '8 Racun dalam kehidupan kita', '8 Racun dalam kehidupan kita', '2017-01-23 15:28:17', 'Drs. Joko', 0, '8e38ad4948ba13758683dea443fbe6be.docx'),
-(7, 'Jurnal Teknolgi Informasi', 'Jurnal Teknolgi Informasi', '2017-01-25 03:18:53', 'Gunawan, S.Pd', 0, '87ae0f009714ddfdd79e2977b2a64632.pdf'),
-(8, 'Jurnal Teknolgi Informasi 2', 'Jurnal Teknolgi Informasi', '2017-01-25 03:19:22', 'Gunawan, S.Pd', 0, 'c4e966ba2c6e142155082854dc5b3602.pdf'),
-(9, 'Naskah Publikasi IT', 'Naskah Teknolgi Informasi', '2017-01-25 03:21:04', 'Gunawan, S.Pd', 0, '71380b3cf16a17a02382098c028ece9c.pdf'),
-(10, 'Modul Teknologi Informasi', 'Modul Teknologi Informasi', '2017-01-25 03:22:08', 'Gunawan, S.Pd', 0, '029143a3980232ab2900d94df36dbb0c.pdf'),
-(11, 'Modul Teknologi Informasi Part II', 'Modul Teknologi Informasi', '2017-01-25 03:22:54', 'Gunawan, S.Pd', 0, 'ea8f3f732576083156e509657614f551.pdf'),
-(12, 'Modul Teknologi Informasi Part III', 'Modul Teknologi Informasi', '2017-01-25 03:23:21', 'Gunawan, S.Pd', 0, 'c5e5e7d16e4cd6c3d22c11f64b0db2af.pdf'),
-(13, 'latar belakang', 'coba coba', '2019-10-09 08:57:59', 'saya', 0, 'fc23de77993a9dbc8b80290d2073fef9.pdf'),
-(14, 'barubanget', 'lkjhgfghjk', '2020-01-08 22:43:49', 'saya jj', 0, 'ef5c3ba69419fec95487b15878d28080.pdf'),
-(15, 'barubangetjj', 'aesrdfgjfds', '2020-01-09 00:19:23', 'sayatt', 0, '32898b6a92f636879003402341fb58c4.pdf'),
-(17, 'PSB', 'data PSB 2020', '2020-07-03 21:06:38', '30', 0, '67d329ca2dde905fa88a16528af9f09e.docx'),
-(18, 'Laporan Akhir', 'Hanya Kover', '2020-07-08 03:23:09', '40', 0, '8f8e768652427fadca4fbebb8de2b54e.pdf'),
-(19, 'sempro', 'proposl skripsi', '2020-07-13 15:35:15', '36', 0, 'cde73f9ef569b66172bfb0ddb2d88960.docx');
+INSERT INTO `tbl_files` (`file_id`, `file_judul`, `file_deskripsi`, `file_tanggal`, `file_oleh`, `file_status`, `file_download`, `file_data`) VALUES
+(2, 'Dasar-dasar CSS', 'Modul dasar-dasar CSS 3. Modul ini membantu anda untuk memahami struktur dasar CSS', '2017-01-23 04:30:01', 'Drs. Joko', 3, 0, 'ab9a183ff240deadbedaff78e639af2f.pdf'),
+(3, '14 Teknik Komunikasi Yang Paling Efektif', 'Ebook 14 teknik komunikasi paling efektif membantu anda untuk berkomunikasi dengan baik dan benar', '2017-01-23 15:26:06', 'Drs. Joko', 3, 0, 'ab2cb34682bd94f30f2347523112ffb9.pdf'),
+(4, 'Bagaimana Membentuk Pola Pikir yang Baru', 'Ebook ini membantu anda membentuk pola pikir baru.', '2017-01-23 15:27:07', 'Drs. Joko', 3, 0, '30f588eb5c55324f8d18213f11651855.pdf'),
+(5, '7 Tips Penting mengatasi Kritik', '7 Tips Penting mengatasi Kritik', '2017-01-23 15:27:44', 'Drs. Joko', 3, 0, '329a62b25ad475a148e1546aa3db41de.docx'),
+(6, '8 Racun dalam kehidupan kita', '8 Racun dalam kehidupan kita', '2017-01-23 15:28:17', 'Drs. Joko', 3, 0, '8e38ad4948ba13758683dea443fbe6be.docx'),
+(7, 'Jurnal Teknolgi Informasi', 'Jurnal Teknolgi Informasi', '2017-01-25 03:18:53', 'Gunawan, S.Pd', 3, 0, '87ae0f009714ddfdd79e2977b2a64632.pdf'),
+(8, 'Jurnal Teknolgi Informasi 2', 'Jurnal Teknolgi Informasi', '2017-01-25 03:19:22', 'Gunawan, S.Pd', 3, 0, 'c4e966ba2c6e142155082854dc5b3602.pdf'),
+(9, 'Naskah Publikasi IT', 'Naskah Teknolgi Informasi', '2017-01-25 03:21:04', 'Gunawan, S.Pd', 3, 0, '71380b3cf16a17a02382098c028ece9c.pdf'),
+(10, 'Modul Teknologi Informasi', 'Modul Teknologi Informasi', '2017-01-25 03:22:08', 'Gunawan, S.Pd', 3, 0, '029143a3980232ab2900d94df36dbb0c.pdf'),
+(11, 'Modul Teknologi Informasi Part II', 'Modul Teknologi Informasi', '2017-01-25 03:22:54', 'Gunawan, S.Pd', 3, 0, 'ea8f3f732576083156e509657614f551.pdf'),
+(12, 'Modul Teknologi Informasi Part III', 'Modul Teknologi Informasi', '2017-01-25 03:23:21', 'Gunawan, S.Pd', 3, 0, 'c5e5e7d16e4cd6c3d22c11f64b0db2af.pdf'),
+(13, 'latar belakang', 'coba coba', '2019-10-09 08:57:59', 'saya', 3, 0, 'fc23de77993a9dbc8b80290d2073fef9.pdf'),
+(14, 'barubanget', 'lkjhgfghjk', '2020-01-08 22:43:49', 'saya jj', 3, 0, 'ef5c3ba69419fec95487b15878d28080.pdf'),
+(15, 'barubangetjj', 'aesrdfgjfds', '2020-01-09 00:19:23', 'sayatt', 3, 0, '32898b6a92f636879003402341fb58c4.pdf'),
+(17, 'PSB', 'data PSB 2020', '2020-07-03 21:06:38', '30', 3, 0, '67d329ca2dde905fa88a16528af9f09e.docx'),
+(18, 'Laporan Akhir', 'Hanya Kover', '2020-07-08 03:23:09', '40', 3, 0, '8f8e768652427fadca4fbebb8de2b54e.pdf'),
+(19, 'sempro22', 'proposl skripsi', '2020-07-13 15:35:15', '36', 3, 0, 'cde73f9ef569b66172bfb0ddb2d88960.docx'),
+(20, 'khatamannn', 'ini khatamannn', '2020-10-20 15:44:51', '36', 1, 0, '5ccc0ffb043390b77f5d61893438d973.docx'),
+(21, 'coba', 'coba lagi', '2020-11-08 10:17:15', 'amril', 3, 0, '12650043_BAB-I_VII_DAFTAR-PUSTAKA.docx');
 
 -- --------------------------------------------------------
 
@@ -401,7 +411,7 @@ CREATE TABLE IF NOT EXISTS `tbl_inbox` (
   `inbox_pesan` text,
   `inbox_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `inbox_status` int(11) DEFAULT '1' COMMENT '1=Belum dilihat, 0=Telah dilihat'
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_inbox`
@@ -414,7 +424,8 @@ INSERT INTO `tbl_inbox` (`inbox_id`, `inbox_nama`, `inbox_email`, `inbox_kontak`
 (7, 'M Fikri Setiadi', 'fikrifiver97@gmail.com', '-', 'Hi, there!', '2017-07-01 07:28:08', 0),
 (8, 'M Fikri', 'fikrifiver97@gmail.com', '084375684364', 'Hi There, Would you please help me about register?', '2018-08-06 13:51:07', 0),
 (9, 'adi', 'adi@gmail.com', '0908678673512', 'coba2', '2019-10-16 12:46:05', 0),
-(10, 'badu', 'badu@gmail.com', '080793739477', 'absen', '2019-10-16 12:46:34', 0);
+(10, 'badu', 'badu@gmail.com', '080793739477', 'absen', '2019-10-16 12:46:34', 0),
+(11, 'nuris', 'fauzanashari29@gmail.com', '986787654567', 'baik', '2020-11-08 10:20:11', 0);
 
 -- --------------------------------------------------------
 
@@ -498,7 +509,7 @@ CREATE TABLE IF NOT EXISTS `tbl_komentar` (
   `komentar_status` varchar(2) DEFAULT NULL,
   `komentar_tulisan_id` int(11) DEFAULT NULL,
   `komentar_parent` int(11) DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_komentar`
@@ -512,7 +523,9 @@ INSERT INTO `tbl_komentar` (`komentar_id`, `komentar_nama`, `komentar_email`, `k
 (5, 'admin', '', 'ok terimakasih', '2019-11-08 16:24:13', '1', 23, 4),
 (6, 'waawan', 'wawan@gmail.com', 'fglfhkkhgghoiuowe9 hdqiewi joiqwo ', '2020-01-07 09:27:17', '1', 27, 0),
 (7, 'sapto', '', 'ghgfghgf drwerrh', '2020-01-07 09:27:45', '1', 27, 6),
-(8, 'admin Profile', '', 'wow', '2020-07-13 16:03:51', '1', 24, 1);
+(8, 'admin Profile', '', 'wow', '2020-07-13 16:03:51', '1', 24, 1),
+(9, 'Desi', 'fauzanashari29@gmail.com', ' josss', '2020-11-08 10:20:58', '1', 27, 0),
+(10, 'admin Profile', '', 'terimakasih<br />\r\n', '2020-11-08 10:22:33', '1', 27, 9);
 
 -- --------------------------------------------------------
 
@@ -572,7 +585,7 @@ CREATE TABLE IF NOT EXISTS `tbl_nilai` (
   `nilai2` int(10) NOT NULL COMMENT 'ex:uas',
   `nilai_akhir` int(10) NOT NULL COMMENT 'nilai akhir',
   `createat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_nilai`
@@ -587,13 +600,13 @@ INSERT INTO `tbl_nilai` (`nilai_id`, `nilai_siswaId`, `nilai_waliId`, `nilai_map
 (10, 59, 30, 14, 80, 90, 85, '2020-07-07 16:17:54'),
 (11, 61, 36, 16, 80, 70, 75, '2020-07-07 17:41:16'),
 (12, 62, 36, 16, 30, 60, 45, '2020-07-07 17:41:38'),
-(13, 63, 36, 16, 70, 85, 78, '2020-07-11 00:48:43'),
+(13, 63, 36, 16, 80, 80, 80, '2020-10-24 07:55:23'),
 (14, 61, 36, 0, 0, 0, 0, '2020-07-11 09:04:49'),
 (15, 61, 36, 0, 0, 0, 0, '2020-07-11 09:06:08'),
 (16, 61, 36, 19, 50, 55, 53, '2020-07-15 13:47:15'),
 (17, 62, 36, 19, 45, 65, 55, '2020-07-15 13:47:27'),
-(18, 64, 36, 16, 40, 60, 50, '2020-07-17 09:57:07'),
-(19, 63, 36, 19, 50, 45, 48, '2020-07-17 09:57:50');
+(19, 63, 36, 19, 50, 45, 48, '2020-07-17 09:57:50'),
+(22, 64, 36, 16, 85, 60, 73, '2020-10-24 07:54:30');
 
 -- --------------------------------------------------------
 
@@ -604,16 +617,12 @@ INSERT INTO `tbl_nilai` (`nilai_id`, `nilai_siswaId`, `nilai_waliId`, `nilai_map
 CREATE TABLE IF NOT EXISTS `tbl_pengguna` (
 `pengguna_id` int(11) NOT NULL,
   `pengguna_nama` varchar(50) DEFAULT NULL,
-  `pengguna_moto` varchar(100) DEFAULT NULL,
   `pengguna_jenkel` varchar(2) DEFAULT NULL,
   `pengguna_username` varchar(30) DEFAULT NULL,
   `pengguna_pass_lihat` varchar(10) NOT NULL,
   `pengguna_password` varchar(35) DEFAULT NULL,
-  `pengguna_tentang` text,
   `pengguna_email` varchar(50) DEFAULT NULL,
   `pengguna_nohp` varchar(20) DEFAULT NULL,
-  `pengguna_facebook` varchar(35) DEFAULT NULL,
-  `pengguna_twitter` varchar(35) DEFAULT NULL,
   `pengguna_status` int(2) DEFAULT '1',
   `pengguna_level` varchar(3) DEFAULT NULL COMMENT '1=superadmin, 2=wali kela, 3=admin profile, 4=santri, 5=panitia PSB',
   `pengguna_register` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -624,19 +633,19 @@ CREATE TABLE IF NOT EXISTS `tbl_pengguna` (
 -- Dumping data for table `tbl_pengguna`
 --
 
-INSERT INTO `tbl_pengguna` (`pengguna_id`, `pengguna_nama`, `pengguna_moto`, `pengguna_jenkel`, `pengguna_username`, `pengguna_pass_lihat`, `pengguna_password`, `pengguna_tentang`, `pengguna_email`, `pengguna_nohp`, `pengguna_facebook`, `pengguna_twitter`, `pengguna_status`, `pengguna_level`, `pengguna_register`, `pengguna_photo`) VALUES
-(30, 'hari', NULL, 'L', 'hari123', '', '98641e30ace18a76f07bd7e5fbf7cd6c', NULL, 'fauzanashari29@gmail.com', '08099898898', NULL, NULL, 1, '2', '2020-06-25 13:35:22', 'arsi_biru4.jpg'),
-(32, 'badu', NULL, 'L', 'badu123', '', '98641e30ace18a76f07bd7e5fbf7cd6c', NULL, 'fauzanashari29@gmail.com', '09867677637', NULL, NULL, 1, '4', '2020-06-25 13:37:00', 'aasa.jpg'),
-(33, 'adminpsb', NULL, 'L', 'adminpsb', '', '98641e30ace18a76f07bd7e5fbf7cd6c', NULL, 'fauzanashari29@gmail.com', '08099898898', NULL, NULL, 1, '2', '2020-06-25 13:38:56', 'IMG_0318.JPG'),
-(34, 'hari PSB', NULL, 'L', 'haripsb', '', '98641e30ace18a76f07bd7e5fbf7cd6c', NULL, 'fauzanashari29@gmail.com', '08099898898', NULL, NULL, 1, '5', '2020-06-25 14:14:34', 'crop1.jpg'),
-(35, 'admin Profile', NULL, 'L', 'adminprofil', '', '98641e30ace18a76f07bd7e5fbf7cd6c', NULL, 'fauzanashari29@gmail.com', '08099898898', NULL, NULL, 1, '3', '2020-06-25 14:15:20', 'arsi_biru.jpg'),
-(36, 'puji', NULL, 'L', 'puji123', '', '98641e30ace18a76f07bd7e5fbf7cd6c', NULL, 'fauzanashari29@gmail.com', '08099898898', NULL, NULL, 1, '2', '2020-06-26 06:02:36', 'arsi_merah1.jpg'),
-(37, 'super admin', NULL, 'L', 'superadmin', '', '98641e30ace18a76f07bd7e5fbf7cd6c', NULL, 'fauzanashari29@gmail.com', '08099898898', NULL, NULL, 1, '1', '2020-06-29 00:12:17', 'IMG_0315.JPG'),
-(39, 'wahyu', NULL, 'P', 'wahyu123', '', '98641e30ace18a76f07bd7e5fbf7cd6c', NULL, 'fauzanashari29@gmail.com', '09867677637', NULL, NULL, 1, '2', '2020-07-08 00:59:06', 'bc_buku.jpg'),
-(43, 'adam rifki', NULL, 'L', 'adam', '', '98641e30ace18a76f07bd7e5fbf7cd6c', NULL, 'fauzanashari29@gmail.com', '08099898898', NULL, NULL, 1, '5', '2020-07-11 00:32:54', '117.jpg'),
-(47, 'amrul', NULL, 'L', 'psb123', '', '98641e30ace18a76f07bd7e5fbf7cd6c', NULL, 'fauzanashari29@gmail.com', '09867677637', NULL, NULL, 1, '5', '2020-07-11 00:57:22', '1112.jpg'),
-(50, 'afif afandi', NULL, 'L', 'afif123', '26410', 'e36dfba5e7cc3a42ee845634093caaa1', NULL, 'fauzanashari29@gmail.com', '987678987', NULL, NULL, 1, '3', '2020-07-27 12:37:26', '1120.jpg'),
-(51, 'alvian', NULL, 'L', 'alvian123', '10229', '70876df606415b050df59005c3cff238', NULL, 'fauzanashari29@gmail.com', '09876567898', NULL, NULL, 1, '3', '2020-07-27 12:41:48', 'arsi_biru5.jpg');
+INSERT INTO `tbl_pengguna` (`pengguna_id`, `pengguna_nama`, `pengguna_jenkel`, `pengguna_username`, `pengguna_pass_lihat`, `pengguna_password`, `pengguna_email`, `pengguna_nohp`, `pengguna_status`, `pengguna_level`, `pengguna_register`, `pengguna_photo`) VALUES
+(30, 'hari', 'L', 'hari123', '', '98641e30ace18a76f07bd7e5fbf7cd6c', 'fauzanashari29@gmail.com', '08099898898', 1, '2', '2020-06-25 13:35:22', 'arsi_biru4.jpg'),
+(32, 'badu', 'L', 'badu123', '', '98641e30ace18a76f07bd7e5fbf7cd6c', 'fauzanashari29@gmail.com', '09867677637', 1, '4', '2020-06-25 13:37:00', 'aasa.jpg'),
+(33, 'adminpsb', 'L', 'adminpsb', '', '98641e30ace18a76f07bd7e5fbf7cd6c', 'fauzanashari29@gmail.com', '08099898898', 1, '5', '2020-06-25 13:38:56', 'IMG_0318.JPG'),
+(34, 'hari PSB', 'L', 'haripsb', '', '98641e30ace18a76f07bd7e5fbf7cd6c', 'fauzanashari29@gmail.com', '08099898898', 1, '5', '2020-06-25 14:14:34', 'crop1.jpg'),
+(35, 'admin Profile', 'L', 'adminprofil', '', '98641e30ace18a76f07bd7e5fbf7cd6c', 'fauzanashari29@gmail.com', '08099898898', 1, '3', '2020-06-25 14:15:20', 'arsi_biru.jpg'),
+(36, 'puji', 'L', 'puji123456', '', '98641e30ace18a76f07bd7e5fbf7cd6c', 'fauzanashari29@gmail.com', '08099898898', 1, '2', '2020-06-26 06:02:36', 'arsi_merah1.jpg'),
+(37, 'super admin', 'L', 'superadmin', '', '98641e30ace18a76f07bd7e5fbf7cd6c', 'fauzanashari29@gmail.com', '08099898898', 1, '1', '2020-06-29 00:12:17', 'IMG_0315.JPG'),
+(39, 'wahyu', 'P', 'wahyu123', '', '98641e30ace18a76f07bd7e5fbf7cd6c', 'fauzanashari29@gmail.com', '09867677637', 1, '2', '2020-07-08 00:59:06', 'bc_buku.jpg'),
+(43, 'adam rifki', 'L', 'adam', '', '98641e30ace18a76f07bd7e5fbf7cd6c', 'fauzanashari29@gmail.com', '08099898898', 1, '5', '2020-07-11 00:32:54', '117.jpg'),
+(47, 'amrul', 'L', 'psb123', '', '98641e30ace18a76f07bd7e5fbf7cd6c', 'fauzanashari29@gmail.com', '09867677637', 1, '5', '2020-07-11 00:57:22', '1112.jpg'),
+(50, 'afif afandi', 'L', 'afif123', '26410', 'e36dfba5e7cc3a42ee845634093caaa1', 'fauzanashari29@gmail.com', '987678987', 1, '3', '2020-07-27 12:37:26', '1120.jpg'),
+(51, 'alvian', 'L', 'alvian123', '10229', '70876df606415b050df59005c3cff238', 'fauzanashari29@gmail.com', '09876567898', 1, '3', '2020-07-27 12:41:48', 'arsi_biru5.jpg');
 
 -- --------------------------------------------------------
 
@@ -670,7 +679,7 @@ CREATE TABLE IF NOT EXISTS `tbl_pengunjung` (
   `pengunjung_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `pengunjung_ip` varchar(40) DEFAULT NULL,
   `pengunjung_perangkat` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=986 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=989 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_pengunjung`
@@ -732,7 +741,10 @@ INSERT INTO `tbl_pengunjung` (`pengunjung_id`, `pengunjung_tanggal`, `pengunjung
 (982, '2020-08-28 10:01:36', '::1', 'Chrome'),
 (983, '2020-09-25 07:47:17', '::1', 'Chrome'),
 (984, '2020-09-27 09:36:01', '::1', 'Chrome'),
-(985, '2020-10-06 06:13:54', '::1', 'Chrome');
+(985, '2020-10-06 06:13:54', '::1', 'Chrome'),
+(986, '2020-10-20 14:52:48', '::1', 'Chrome'),
+(987, '2020-10-24 06:23:00', '::1', 'Chrome'),
+(988, '2020-11-08 10:07:36', '::1', 'Chrome');
 
 -- --------------------------------------------------------
 
@@ -784,13 +796,13 @@ CREATE TABLE IF NOT EXISTS `tbl_siswa` (
 --
 
 INSERT INTO `tbl_siswa` (`siswa_id`, `siswa_guru_id`, `siswa_nis`, `siswa_password`, `siswa_password_lihat`, `siswa_nama`, `siswa_jenkel`, `siswa_kelas_id`, `siswa_status`, `siswa_photo`) VALUES
-(55, 39, '12345', '9f15dd77bfcd0d8143ce0beb217ed18a', '24037', 'hari', 'L', 15, 1, 'arsi_biru.jpg'),
+(55, 39, '12345', '98641e30ace18a76f07bd7e5fbf7cd6c', '123456qq', 'hari nande L', 'L', 15, 1, 'arsi_biru.jpg'),
 (58, 30, '00012366', '30b1b5b6990012b272d5251f6a31489c', '12837', 'nuris', 'P', 12, 1, '1113.jpg'),
 (59, 30, '123456', '61e40fcd266f6924734eefc31492e4b7', '20974', 'hari', 'L', 12, 1, '1114.jpg'),
 (61, 39, '00989855', 'aab3238922bcc25a6f606eb525ffdc56', '123456qq', 'Dian', 'L', 15, 1, ''),
 (62, 39, '00012333', 'aab3238922bcc25a6f606eb525ffdc56', '123456qq', 'Umi', 'P', 15, 1, ''),
-(63, 36, '00989', 'aab3238922bcc25a6f606eb525ffdc56', '123456', 'hamimww', 'L', 14, 1, '377342143.jpg'),
-(64, 36, '07886669999', 'aab3238922bcc25a6f606eb525ffdc56', '', 'badu123', 'L', 14, 1, '114.jpg'),
+(63, 36, '00989', '98641e30ace18a76f07bd7e5fbf7cd6c', '123456qq', 'hamimww', 'L', 14, 1, '377342143.jpg'),
+(64, 36, '07886669999', '98641e30ace18a76f07bd7e5fbf7cd6c', '123456qq', 'badu123', 'L', 14, 1, '114.jpg'),
 (66, 40, '886765', 'b5d62aa6024ab6a65a12c78c4c2d4efc', '7904', 'arsi', 'P', 17, 1, 'arsi_biru1.jpg'),
 (67, 40, '99867', 'db0513583c7b05237076d942baab7ce9', '5529', 'nuzul', 'P', 17, 1, '11.png'),
 (68, 40, '76655', 'b57a35f9dda9f73ab2c04e1a6963c932', '31746', 'Isti', 'P', 17, 1, 'pp.png'),
@@ -895,7 +907,7 @@ INSERT INTO `tbl_tulisan` (`tulisan_id`, `tulisan_judul`, `tulisan_isi`, `tulisa
 (23, 'Pelaksanaan Ujian Nasional ', '<p>Pelaksanaan UN (Ujian Nasional) di sekolah M-Sekolah berlangsung tentram dan damai. Terlihat ketenangan terpancar diwajah siswa berprestasi.&nbsp; Ini adalah sampel artikel Ini adalah sampel artikel&nbsp; Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n', '2017-05-17 09:41:30', 1, 'Pendidikan', 8, '08b79af56e7400c992ea68bb00168e7e.png', 35, 'admin Profile', 0, 'pelaksanaan-ujian-nasional'),
 (24, 'Proses belajar mengajar ', '<p>Proses belajar mengajar di sekolah m-sekolah berlangsung menyenangkan. Didukung oleh instruktur yang fun dengan metode mengajar yang tidak biasa. Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel a Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel .</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n\r\n<p>Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel Ini adalah sampel artikel.</p>\r\n', '2017-05-17 09:46:29', 1, 'Pendidikan', 168, 'cover_eva.jpg', 35, 'admin Profile', 0, 'proses-belajar-mengajar'),
 (26, 'latar belakang', '<p>bagian saddakdfjkdfkjfd,fnn,adfkf danf,s,fs,FJSD&nbsp; ,FlfjkFLsjkksjflsF</p>\r\n\r\n<p>sfSFLJs,fj</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>FFWFWFwf</p>\r\n', '2019-10-09 23:01:22', 6, 'Prestasi', 5, 'uin-sunan-kalijaga_20180504_163445.jpg', 35, 'admin Profile', 0, 'latar-belakang'),
-(27, 'Pembangun pondok pesantren', '<p>lorem ipsum&nbsp;lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>\r\n\r\n<p>&nbsp;</p>\r\n', '2020-07-13 16:12:52', 6, 'Prestasi', 9, 'IMG-20191029-WA0095.jpg', 35, 'admin Profile', 0, 'pembangun-pondok-pesantren');
+(27, 'Pembangun pondok pesantren', '<p>lorem ipsum&nbsp;lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>\r\n\r\n<p>&nbsp;</p>\r\n', '2020-07-13 16:12:52', 6, 'Prestasi', 12, 'IMG-20191029-WA0095.jpg', 35, 'admin Profile', 0, 'pembangun-pondok-pesantren');
 
 --
 -- Indexes for dumped tables
@@ -1059,7 +1071,7 @@ ALTER TABLE `tbl_tulisan`
 -- AUTO_INCREMENT for table `tbl_absensi`
 --
 ALTER TABLE `tbl_absensi`
-MODIFY `absensi_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=114;
+MODIFY `absensi_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=118;
 --
 -- AUTO_INCREMENT for table `tbl_administrasi`
 --
@@ -1079,12 +1091,12 @@ MODIFY `album_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `tbl_daftar`
 --
 ALTER TABLE `tbl_daftar`
-MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=54;
+MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT for table `tbl_files`
 --
 ALTER TABLE `tbl_files`
-MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `tbl_galeri`
 --
@@ -1099,7 +1111,7 @@ MODIFY `guru_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=42;
 -- AUTO_INCREMENT for table `tbl_inbox`
 --
 ALTER TABLE `tbl_inbox`
-MODIFY `inbox_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `inbox_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tbl_kategori`
 --
@@ -1119,7 +1131,7 @@ MODIFY `kelas_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 -- AUTO_INCREMENT for table `tbl_komentar`
 --
 ALTER TABLE `tbl_komentar`
-MODIFY `komentar_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `komentar_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `tbl_log_aktivitas`
 --
@@ -1134,7 +1146,7 @@ MODIFY `mapel_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 -- AUTO_INCREMENT for table `tbl_nilai`
 --
 ALTER TABLE `tbl_nilai`
-MODIFY `nilai_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+MODIFY `nilai_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `tbl_pengguna`
 --
@@ -1149,7 +1161,7 @@ MODIFY `pengumuman_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT for table `tbl_pengunjung`
 --
 ALTER TABLE `tbl_pengunjung`
-MODIFY `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=986;
+MODIFY `pengunjung_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=989;
 --
 -- AUTO_INCREMENT for table `tbl_rapor`
 --
